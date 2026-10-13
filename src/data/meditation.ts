@@ -8,7 +8,7 @@ export const meditationTracks: MeditationTrack[] = [
     durationMinutes: 5,
     icon: 'flower',
     color: '#10b981',
-    audioPath: '/meditation/forest.mp3',
+    audioPath: `${import.meta.env.BASE_URL}meditation/forest.mp3`,
   },
   {
     id: 'coherent-breathing',
@@ -17,7 +17,7 @@ export const meditationTracks: MeditationTrack[] = [
     durationMinutes: 5,
     icon: 'waves',
     color: '#06b6d4',
-    audioPath: '/meditation/rain.mp3',
+    audioPath: `${import.meta.env.BASE_URL}meditation/rain.mp3`,
   },
   {
     id: 'om',
@@ -26,6 +26,6 @@ export const meditationTracks: MeditationTrack[] = [
     durationMinutes: 5,
     icon: 'circle',
     color: '#f59e0b',
-    audioPath: '/meditation/om.mp3',
+    audioPath: `${import.meta.env.BASE_URL}meditation/om.mp3`,
   },
 ];

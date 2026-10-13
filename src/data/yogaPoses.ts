@@ -1,6 +1,7 @@
 import type { YogaPose } from '@/types';
 
-export const yogaVideoBase = '/yoga-videos/';
+export const yogaVideoBase = `${import.meta.env.BASE_URL}yoga-videos/`;
+
 
 export function getPoseVideoPath(poseId: string): string {
   return `${yogaVideoBase}${poseId}.mp4`;
