@@ -1,0 +1,1186 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --botanical-cream: #edf4f5;
+  --botanical-paper: #ffffff;
+  --botanical-paper-soft: #e7f0f1;
+  --botanical-ink: #18373d;
+  --botanical-muted: #5c777d;
+  --botanical-sage: #5c9293;
+  --botanical-sage-deep: #33777b;
+  --botanical-line: rgba(42, 107, 112, 0.16);
+  --botanical-shadow: 0 18px 44px -32px rgba(20, 70, 77, 0.3);
+  --reminder-blue: #e5f1f2;
+  --reminder-blue-border: #c7dfe1;
+  --reminder-blue-ink: #356d72;
+  --reminder-hover: #d8e9ea;
+  --chart-grid: #dce8e9;
+  --chart-axis: #8da8aa;
+  --chart-label: #58767b;
+  --chart-tooltip-bg: #ffffff;
+  --chart-tooltip-border: #cbdcde;
+  --chart-tooltip-ink: #18373d;
+  --chart-sage: #5a8980;
+  --chart-olive: #89936f;
+  --chart-teal: #4c9998;
+  --chart-azure: #679db2;
+}
+
+.dark {
+  color-scheme: dark;
+  --botanical-cream: #10262a;
+  --botanical-paper: #19363b;
+  --botanical-paper-soft: #22464b;
+  --botanical-ink: #e7f2f1;
+  --botanical-muted: #a8c2c2;
+  --botanical-sage: #83b7b0;
+  --botanical-sage-deep: #9ed4ce;
+  --botanical-line: rgba(168, 210, 207, 0.2);
+  --botanical-shadow: 0 20px 48px -32px rgba(0, 12, 16, 0.7);
+  --reminder-blue: #23474b;
+  --reminder-blue-border: #426c70;
+  --reminder-blue-ink: #d1e9e7;
+  --reminder-hover: #2e5559;
+  --chart-grid: #3b5c60;
+  --chart-axis: #78989b;
+  --chart-label: #bdd3d2;
+  --chart-tooltip-bg: #234247;
+  --chart-tooltip-border: #527276;
+  --chart-tooltip-ink: #e7f2f1;
+  --chart-sage: #8fc8b3;
+  --chart-olive: #c0c995;
+  --chart-teal: #79c4bf;
+  --chart-azure: #91cee3;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--botanical-cream);
+  color: var(--botanical-ink);
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:not(:disabled) {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(76, 153, 152, 0.42);
+  outline-offset: 2px;
+}
+
+input:not([type='checkbox']):not([type='radio']):not([type='range']),
+select,
+textarea {
+  border-color: var(--botanical-line) !important;
+  border-radius: 0.85rem !important;
+  background-color: var(--botanical-paper);
+  color: var(--botanical-ink);
+  box-shadow: 0 1px 2px rgba(24, 70, 77, 0.06);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+input:not([type='checkbox']):not([type='radio']):not([type='range']):focus,
+select:focus,
+textarea:focus {
+  border-color: var(--botanical-sage) !important;
+  box-shadow: 0 0 0 4px rgba(76, 153, 152, 0.18) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--botanical-muted);
+  opacity: 0.78;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #bfd3d4; border-radius: 999px; }
+.dark ::-webkit-scrollbar-thumb { background: #476a6f; }
+::-webkit-scrollbar-thumb:hover { background: #95b7ba; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+@keyframes bounceSubtle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes fillWater { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes breathe { 0%, 100% { transform: scale(1); opacity: 0.78; } 50% { transform: scale(1.12); opacity: 1; } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes glow { 0%, 100% { opacity: 0.45; } 50% { opacity: 0.8; } }
+@keyframes botanical-drift { from { transform: translate3d(0, 0, 0) rotate(12deg); } to { transform: translate3d(-16px, 12px, 0) rotate(28deg); } }
+
+@layer utilities {
+  .animate-in { animation: fadeInUp 0.3s ease-out both; }
+  .animate-slide-in { animation: slideInRight 0.3s ease-out both; }
+  .animate-fade { animation: fadeIn 0.4s ease-out both; }
+  .animate-scale { animation: scaleIn 0.3s ease-out both; }
+  .animate-bounce-subtle { animation: bounceSubtle 0.6s ease-out both; }
+  .animate-fill-water { animation: fillWater 0.5s ease-out both; }
+  .glass { backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); }
+  .glass-light { background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); }
+  .glass-dark { background: rgba(19, 46, 51, 0.82); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); }
+  .text-gradient {
+    background: linear-gradient(125deg, #31777c, #55999b, #70aeb4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-mesh {
+    background-color: var(--botanical-cream);
+    background-image:
+      radial-gradient(ellipse at 10% 3%, rgba(148, 207, 204, 0.24), transparent 38%),
+      radial-gradient(ellipse at 91% 16%, rgba(170, 211, 226, 0.18), transparent 34%),
+      radial-gradient(ellipse at 70% 96%, rgba(186, 220, 216, 0.16), transparent 38%);
+  }
+  .shadow-soft { box-shadow: var(--botanical-shadow); }
+  .shadow-glow { box-shadow: 0 0 24px -8px rgba(103, 132, 96, 0.3); }
+}
+
+.dark .text-gradient {
+  background-image: linear-gradient(125deg, #a8dcd2, #86c6c4, #a6d6e5);
+}
+
+.dark .bg-mesh {
+  background-image:
+    radial-gradient(ellipse at 10% 3%, rgba(68, 157, 155, 0.18), transparent 38%),
+    radial-gradient(ellipse at 91% 16%, rgba(66, 133, 158, 0.16), transparent 34%),
+    radial-gradient(ellipse at 70% 96%, rgba(71, 148, 140, 0.12), transparent 38%);
+}
+
+.wellness-app {
+  color: var(--botanical-ink);
+  background-color: var(--botanical-cream);
+}
+
+.wellness-app main h1,
+.wellness-app main h2,
+.wellness-app main h3 {
+  color: var(--botanical-ink);
+}
+
+.wellness-app .text-gray-900,
+.wellness-app .text-gray-800 {
+  color: var(--botanical-ink) !important;
+}
+
+.wellness-app .text-gray-700,
+.wellness-app .text-gray-600,
+.wellness-app .text-gray-500,
+.wellness-app .text-gray-400 {
+  color: var(--botanical-muted) !important;
+}
+
+.dark .wellness-app [class*="dark:text-slate-"] {
+  color: var(--botanical-muted) !important;
+}
+
+.wellness-app .bg-white,
+.wellness-welcome .bg-white {
+  background-color: var(--botanical-paper) !important;
+}
+
+.wellness-app .bg-gray-50 {
+  background-color: var(--botanical-paper-soft) !important;
+}
+
+.dark .wellness-app [class*="dark:bg-slate-"],
+.dark .wellness-welcome [class*="dark:bg-slate-"] {
+  background-color: var(--botanical-paper-soft) !important;
+}
+
+.dark .wellness-app .wellness-card {
+  background-color: var(--botanical-paper) !important;
+}
+
+.dark .wellness-app input:not([type='checkbox']):not([type='radio']):not([type='range']),
+.dark .wellness-app select,
+.dark .wellness-app textarea {
+  background-color: var(--botanical-paper-soft) !important;
+}
+
+.wellness-app .border-gray-100,
+.wellness-app .border-gray-200,
+.wellness-app [class*="border-slate-"] {
+  border-color: var(--botanical-line) !important;
+}
+
+.dark .wellness-app [class*="dark:border-slate-"] {
+  border-color: var(--botanical-line) !important;
+}
+
+.wellness-app .hover\:bg-gray-50:hover,
+.wellness-app .hover\:bg-gray-100:hover,
+.dark .wellness-app .dark\:hover\:bg-slate-800:hover,
+.dark .wellness-app .dark\:hover\:bg-slate-800\/50:hover {
+  background-color: var(--botanical-paper-soft) !important;
+}
+
+.dark .wellness-app [class~="dark:text-white"],
+.dark .wellness-welcome [class~="dark:text-white"],
+.dark .wellness-onboarding [class~="dark:text-white"] {
+  color: var(--botanical-ink) !important;
+}
+
+.dark .wellness-app .bg-rose-50,
+.dark .wellness-auth .bg-rose-50 { background-color: rgba(207, 128, 126, 0.16) !important; }
+.dark .wellness-app .bg-amber-50,
+.dark .wellness-onboarding .bg-amber-50 { background-color: rgba(201, 173, 111, 0.15) !important; }
+.dark .wellness-app .bg-blue-50,
+.dark .wellness-app .bg-cyan-50 { background-color: rgba(111, 177, 190, 0.15) !important; }
+.dark .wellness-app .bg-orange-50 { background-color: rgba(211, 152, 117, 0.15) !important; }
+.dark .wellness-app .bg-violet-50,
+.dark .wellness-app .bg-purple-50 { background-color: rgba(155, 134, 183, 0.15) !important; }
+.dark .wellness-app .bg-green-50 { background-color: rgba(114, 175, 139, 0.15) !important; }
+
+.dark .wellness-app .text-rose-600,
+.dark .wellness-app .text-rose-700,
+.dark .wellness-auth .text-rose-600 { color: #f0aaa6 !important; }
+.dark .wellness-app .text-amber-700 { color: #ead69a !important; }
+.dark .wellness-app .text-blue-700,
+.dark .wellness-app .text-cyan-700 { color: #a8d7e1 !important; }
+.dark .wellness-app .text-orange-700 { color: #efb99a !important; }
+
+.dark .wellness-app [class*="border-amber-"],
+.dark .wellness-app [class*="border-blue-"],
+.dark .wellness-app [class*="border-rose-"],
+.dark .wellness-app [class*="border-cyan-"] { border-color: rgba(168, 210, 207, 0.25) !important; }
+
+.wellness-card {
+  border: 1px solid var(--botanical-line) !important;
+  border-radius: 1.05rem !important;
+  background-color: var(--botanical-paper) !important;
+  box-shadow: var(--botanical-shadow) !important;
+  transition: border-color 220ms ease, box-shadow 240ms ease, transform 240ms ease;
+}
+
+.wellness-card:hover {
+  border-color: rgba(76, 153, 152, 0.38) !important;
+}
+
+.wellness-card.hover\:shadow-glow:hover {
+  box-shadow: 0 20px 48px -30px rgba(29, 105, 113, 0.34) !important;
+}
+
+.wellness-sidebar {
+  border-color: var(--botanical-line) !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+}
+
+.dark .wellness-sidebar {
+  background: rgba(21, 52, 57, 0.98) !important;
+}
+
+.wellness-app > div > header,
+.wellness-app > div > nav {
+  border-color: var(--botanical-line) !important;
+  background-color: rgba(255, 255, 255, 0.94) !important;
+}
+
+.dark .wellness-app > div > header,
+.dark .wellness-app > div > nav {
+  background-color: rgba(19, 46, 51, 0.98) !important;
+}
+
+.wellness-app .text-emerald-600,
+.wellness-app .text-emerald-700 {
+  color: var(--botanical-sage-deep) !important;
+}
+
+.dark .wellness-app .text-emerald-400 {
+  color: #a9dcd6 !important;
+}
+
+.dark .wellness-app .text-emerald-500 { color: #93cfc8 !important; }
+.dark .wellness-app .text-blue-500,
+.dark .wellness-app .text-cyan-500 { color: #9fc5ce !important; }
+.dark .wellness-app .text-amber-500 { color: #d8c18c !important; }
+.dark .wellness-app .text-orange-500 { color: #d8a587 !important; }
+.dark .wellness-app .text-violet-500,
+.dark .wellness-app .text-purple-500 { color: #c1b0d0 !important; }
+.dark .wellness-app .text-rose-500 { color: #e0a5a0 !important; }
+
+.wellness-app .bg-emerald-50,
+.wellness-app .hover\:bg-emerald-50:hover {
+  background-color: rgba(92, 146, 147, 0.13) !important;
+}
+
+.dark .wellness-app .bg-emerald-500\/10 {
+  background-color: rgba(131, 183, 176, 0.16) !important;
+}
+
+.wellness-app .bg-emerald-500,
+.wellness-app .bg-emerald-600,
+.wellness-app .bg-teal-600 {
+  background-color: #397f83 !important;
+}
+
+.wellness-app .hover\:bg-emerald-700:hover {
+  background-color: #2d6e73 !important;
+}
+
+.wellness-app .from-emerald-500 {
+  --tw-gradient-from: #43888a var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(67 136 138 / 0) var(--tw-gradient-to-position) !important;
+}
+
+.wellness-app .to-teal-600 {
+  --tw-gradient-to: #39787c var(--tw-gradient-to-position) !important;
+}
+
+.wellness-app .via-teal-600 {
+  --tw-gradient-via: #408285 !important;
+}
+
+.wellness-app .border-emerald-400 {
+  border-color: #72b3b2 !important;
+}
+
+.wellness-auth,
+.wellness-onboarding,
+.wellness-welcome {
+  background-color: var(--botanical-cream) !important;
+  background-image:
+    radial-gradient(ellipse at 8% 7%, rgba(119, 190, 188, 0.25), transparent 38%),
+    radial-gradient(ellipse at 91% 86%, rgba(150, 202, 220, 0.18), transparent 36%),
+    radial-gradient(ellipse at 72% 15%, rgba(155, 214, 209, 0.15), transparent 32%) !important;
+}
+
+.dark .wellness-auth,
+.dark .wellness-onboarding,
+.dark .wellness-welcome {
+  background-image:
+    radial-gradient(ellipse at 8% 7%, rgba(70, 160, 157, 0.19), transparent 38%),
+    radial-gradient(ellipse at 91% 86%, rgba(67, 132, 157, 0.15), transparent 36%),
+    radial-gradient(ellipse at 72% 15%, rgba(60, 145, 139, 0.13), transparent 32%) !important;
+}
+
+.wellness-auth {
+  position: relative;
+  overflow: hidden;
+}
+
+.wellness-auth::before,
+.wellness-auth::after {
+  position: absolute;
+  width: 17rem;
+  height: 17rem;
+  border: 1px solid rgba(56, 130, 136, 0.18);
+  border-radius: 48% 52% 66% 34% / 44% 48% 52% 56%;
+  content: '';
+  pointer-events: none;
+  animation: botanical-drift 18s ease-in-out infinite alternate;
+}
+
+.wellness-auth::before { top: -9rem; right: -6rem; }
+.wellness-auth::after {
+  bottom: -11rem;
+  left: -7rem;
+  width: 22rem;
+  height: 22rem;
+  border-color: rgba(98, 166, 183, 0.2);
+  animation-delay: -5s;
+}
+
+.wellness-auth > header,
+.wellness-auth > div {
+  position: relative;
+  z-index: 1;
+}
+
+.wellness-auth-panel {
+  animation: fadeInUp 650ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.wellness-auth-card,
+.wellness-onboarding-card {
+  border: 1px solid var(--botanical-line) !important;
+  border-radius: 1.2rem !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 28px 76px -48px rgba(24, 75, 82, 0.34) !important;
+  backdrop-filter: blur(16px);
+}
+
+.dark .wellness-auth-card,
+.dark .wellness-onboarding-card {
+  background: rgba(25, 54, 59, 0.98) !important;
+  box-shadow: 0 28px 76px -46px rgba(0, 0, 0, 0.7) !important;
+}
+
+.wellness-auth .text-rose-600,
+.wellness-auth .bg-rose-50 {
+  border-radius: 0.8rem;
+}
+
+.wellness-welcome header {
+  border-color: var(--botanical-line) !important;
+  background-color: rgba(255, 255, 255, 0.84) !important;
+}
+
+.dark .wellness-welcome header {
+  background-color: rgba(19, 46, 51, 0.94) !important;
+}
+
+.wellness-welcome [class*="from-emerald-500"][class*="to-teal-600"] {
+  background-image: none !important;
+  background-color: #397f83 !important;
+}
+
+.dark .wellness-welcome [class*="from-emerald-500"][class*="to-teal-600"] {
+  background-color: #4b9298 !important;
+}
+
+.wellness-welcome .wellness-nature-art {
+  background-image: linear-gradient(145deg, #8ebfba, #73a9ae 58%, #91b9ca) !important;
+}
+
+.dark .wellness-welcome .wellness-nature-art {
+  background-image: linear-gradient(145deg, #28575a, #245158 58%, #315d69) !important;
+}
+
+.wellness-welcome .wellness-welcome-cta {
+  background-image: linear-gradient(135deg, #3f8588, #4d9799 58%, #579caa) !important;
+}
+
+.dark .wellness-welcome .wellness-welcome-cta {
+  background-image: linear-gradient(135deg, #214d52, #286168 58%, #326877) !important;
+}
+
+.wellness-welcome section {
+  animation: fadeInUp 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.wellness-welcome #features .group {
+  border-color: var(--botanical-line) !important;
+  border-radius: 1.25rem !important;
+  background: var(--botanical-paper) !important;
+  box-shadow: var(--botanical-shadow) !important;
+}
+
+.wellness-welcome #features .group:hover {
+  border-color: rgba(76, 153, 152, 0.38) !important;
+  box-shadow: 0 20px 48px -30px rgba(29, 105, 113, 0.3) !important;
+}
+
+.wellness-welcome .text-gradient {
+  background-image: linear-gradient(125deg, #286c72 0%, #428c91 62%, #5c9ca7 100%) !important;
+}
+
+.dark .wellness-welcome .text-gradient {
+  background-image: linear-gradient(125deg, #b4e4dc 0%, #8dd0cc 62%, #a6d9e7 100%) !important;
+}
+
+.wellness-hero-art .from-emerald-300 {
+  --tw-gradient-from: #c7e2df var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(199 226 223 / 0) var(--tw-gradient-to-position) !important;
+}
+
+.wellness-hero-art .via-teal-200 { --tw-gradient-via: #d6e9ec !important; }
+.wellness-hero-art .to-cyan-200 { --tw-gradient-to: #d5e4ee var(--tw-gradient-to-position) !important; }
+.wellness-hero-art .from-emerald-400 {
+  --tw-gradient-from: #75aca7 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgb(117 172 167 / 0) var(--tw-gradient-to-position) !important;
+}
+.wellness-hero-art .via-teal-500 { --tw-gradient-via: #5e9b9e !important; }
+.wellness-hero-art .to-cyan-500 { --tw-gradient-to: #78aebe var(--tw-gradient-to-position) !important; }
+
+.wellness-dashboard-heading {
+  position: relative;
+  z-index: 41;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.wellness-dashboard-heading h1,
+.wellness-dashboard h2 {
+  font-family: 'DM Sans', system-ui, sans-serif !important;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.wellness-eyebrow {
+  margin: 0 0 0.35rem;
+  color: #397f83;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.dark .wellness-eyebrow { color: #9ed4ce; }
+
+.wellness-score-card {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  background: linear-gradient(145deg, #347b80 0%, #438b91 55%, #5d9ea5 100%) !important;
+  box-shadow: 0 22px 48px -32px rgba(22, 92, 100, 0.48) !important;
+}
+
+.wellness-score-card,
+.wellness-score-card h1,
+.wellness-score-card h2,
+.wellness-score-card h3,
+.wellness-score-card .text-gray-900 {
+  color: #fffdf6 !important;
+}
+
+.wellness-score-card svg circle:first-child { stroke: rgba(255, 255, 255, 0.28); }
+
+.wellness-stat-icon {
+  background-color: #e1f0f0 !important;
+  color: #367b7e !important;
+}
+
+.wellness-stat-icon svg { color: #367b7e !important; }
+
+.dark .wellness-stat-icon {
+  background-color: rgba(131, 183, 176, 0.18) !important;
+  color: #a9d7d0 !important;
+}
+
+.dark .wellness-stat-icon svg { color: #a9d7d0 !important; }
+
+.wellness-dashboard .wellness-card [style*="width"] {
+  background-color: var(--chart-sage) !important;
+}
+
+.wellness-onboarding-card { max-width: 44rem; margin-inline: auto; }
+
+.wellness-toast {
+  border: 1px solid var(--botanical-line) !important;
+  border-radius: 1rem !important;
+  background: rgba(255, 255, 255, 0.97) !important;
+  color: var(--botanical-ink) !important;
+  box-shadow: 0 18px 48px -26px rgba(43, 60, 43, 0.4) !important;
+  backdrop-filter: blur(14px);
+}
+
+.dark .wellness-toast {
+  background: rgba(25, 54, 59, 0.98) !important;
+  color: var(--botanical-ink) !important;
+}
+
+.wellness-confirm {
+  border: 1px solid var(--botanical-line) !important;
+  border-radius: 1.35rem !important;
+  background: var(--botanical-paper) !important;
+  color: var(--botanical-ink) !important;
+  box-shadow: 0 28px 76px -42px rgba(22, 39, 26, 0.55) !important;
+}
+
+.wellness-confirm h3 { color: var(--botanical-ink) !important; }
+.wellness-confirm p { color: var(--botanical-muted) !important; }
+
+.wellness-confirm button:not(:last-child) {
+  background: rgba(76, 153, 152, 0.13) !important;
+  color: var(--botanical-sage-deep) !important;
+}
+
+.dark .wellness-confirm button:not(:last-child) { color: #c9e6e1 !important; }
+
+.wellness-confirm button:last-child {
+  border-radius: 0.8rem;
+  background: #397f83 !important;
+}
+
+.wellness-confirm button:last-child:hover { background: #2d6e73 !important; }
+
+.wellness-reminder-anchor {
+  position: relative;
+  z-index: 10;
+  flex: 0 0 auto;
+}
+
+.wellness-reminder-bell {
+  position: relative;
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--reminder-blue-border);
+  border-radius: 1rem;
+  background: var(--reminder-blue);
+  color: var(--reminder-blue-ink);
+  box-shadow: 0 6px 16px -12px rgba(34, 55, 38, 0.45);
+}
+
+.wellness-reminder-bell:hover,
+.wellness-reminder-manage:hover,
+.wellness-reminder-close:hover,
+.wellness-reminder-button:hover {
+  background: var(--reminder-hover) !important;
+}
+
+.dark .wellness-reminder-bell:hover,
+.dark .wellness-reminder-manage:hover,
+.dark .wellness-reminder-close:hover,
+.dark .wellness-reminder-button:hover {
+  background: var(--reminder-hover) !important;
+}
+
+.wellness-reminder-count {
+  position: absolute;
+  top: -0.32rem;
+  right: -0.32rem;
+  display: grid;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  place-items: center;
+  border: 2px solid var(--botanical-paper);
+  border-radius: 999px;
+  background: #438e92;
+  color: white;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.wellness-reminder-popover {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  width: min(22rem, calc(100vw - 2rem));
+  max-height: min(70vh, 28rem);
+  overflow-y: auto;
+  padding: 1rem;
+  border: 1px solid var(--reminder-blue-border);
+  border-radius: 1.15rem;
+  background: var(--botanical-paper);
+  box-shadow: 0 24px 56px -30px rgba(33, 57, 68, 0.38);
+  animation: scaleIn 160ms ease-out both;
+}
+
+.wellness-reminder-popover-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--reminder-blue-border);
+}
+
+.wellness-reminder-popover-heading .wellness-eyebrow { color: var(--reminder-blue-ink); }
+.wellness-reminder-popover-heading h2 { margin: 0; color: var(--botanical-ink); font-size: 1.1rem; }
+
+.wellness-reminder-close {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 0.65rem;
+  background: var(--reminder-blue);
+  color: var(--reminder-blue-ink);
+}
+
+.wellness-reminder-list {
+  display: grid;
+  max-height: 15rem;
+  gap: 0.5rem;
+  overflow-y: auto;
+  padding: 0.75rem 0;
+}
+
+.wellness-reminder-item {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid var(--reminder-blue-border);
+  border-radius: 0.8rem;
+  background: var(--reminder-blue);
+  color: var(--reminder-blue-ink);
+}
+
+.wellness-reminder-item.is-disabled { opacity: 0.58; }
+
+.wellness-reminder-icon {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--reminder-blue-ink);
+}
+
+.dark .wellness-reminder-icon { background: rgba(211, 225, 204, 0.1); color: var(--reminder-blue-ink); }
+.wellness-reminder-name { overflow: hidden; font-size: 0.82rem; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.wellness-reminder-time { font-size: 0.78rem; font-variant-numeric: tabular-nums; font-weight: 700; }
+.wellness-reminder-empty,
+.wellness-reminder-note { color: var(--botanical-muted); font-size: 0.76rem; line-height: 1.5; }
+.wellness-reminder-empty { padding: 1rem 0 0.5rem; }
+.wellness-reminder-note { margin: 0.25rem 0 0.75rem; }
+
+.wellness-reminder-manage {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--reminder-blue-border);
+  border-radius: 0.75rem;
+  background: var(--reminder-blue);
+  color: var(--reminder-blue-ink);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.wellness-reminders-card {
+  border-color: var(--reminder-blue-border) !important;
+  background: var(--botanical-paper) !important;
+}
+
+.dark .wellness-reminders-card { background: var(--botanical-paper) !important; }
+.wellness-reminder-accent { color: var(--reminder-blue-ink); }
+
+.wellness-reminder-button,
+.wellness-reminder-form {
+  border: 1px solid var(--reminder-blue-border);
+  background: var(--reminder-blue) !important;
+  color: var(--reminder-blue-ink) !important;
+}
+
+.wellness-reminder-primary {
+  background: #397f83 !important;
+  color: #fff !important;
+}
+
+.wellness-reminder-primary:hover { background: #2d6e73 !important; }
+
+.wellness-reminders-card .space-y-2 > div { border: 1px solid transparent; }
+
+.wellness-reminders-card .space-y-2 > div:hover {
+  border-color: var(--reminder-blue-border);
+  background: var(--reminder-blue) !important;
+}
+
+.wellness-reminders-card .space-y-2 > div > div > div:first-child { color: var(--reminder-blue-ink); }
+.wellness-reminders-card .space-y-2 > div button.bg-emerald-500 { background-color: #4f9b9f !important; }
+
+.wellness-reminder-toast {
+  border-color: var(--reminder-blue-border) !important;
+  background: var(--reminder-blue) !important;
+  color: var(--reminder-blue-ink) !important;
+}
+
+.wellness-reminder-toast svg { color: var(--reminder-blue-ink) !important; }
+.dark .wellness-reminder-toast { background: var(--reminder-blue) !important; color: var(--reminder-blue-ink) !important; }
+
+.recharts-default-tooltip {
+  border: 1px solid var(--chart-tooltip-border) !important;
+  border-radius: 0.85rem !important;
+  background: var(--chart-tooltip-bg) !important;
+  color: var(--chart-tooltip-ink) !important;
+  box-shadow: 0 8px 24px rgba(28, 42, 31, 0.14) !important;
+}
+
+.recharts-default-tooltip,
+.recharts-default-tooltip * { color: var(--chart-tooltip-ink) !important; }
+.recharts-cartesian-grid line { stroke: var(--chart-grid) !important; }
+.recharts-cartesian-axis-line,
+.recharts-cartesian-axis-tick-line { stroke: var(--chart-axis) !important; }
+.recharts-cartesian-axis-tick-value { fill: var(--chart-label) !important; }
+.recharts-legend-item-text { color: var(--chart-label) !important; }
+.recharts-line-curve { stroke-linecap: round; stroke-linejoin: round; stroke-width: 3px; }
+.recharts-line-dots circle { stroke: var(--botanical-paper); stroke-width: 2px; }
+.recharts-tooltip-cursor { fill: rgba(76, 153, 152, 0.1); }
+.recharts-tooltip-wrapper { z-index: 20; }
+.wellness-app .wellness-card:has(.recharts-responsive-container) {
+  border-color: var(--chart-tooltip-border) !important;
+  background: var(--botanical-paper) !important;
+  box-shadow: 0 12px 32px -26px rgba(26, 94, 101, 0.32) !important;
+}
+.wellness-app .recharts-responsive-container { min-width: 0; }
+.wellness-dashboard .recharts-line-curve { stroke: var(--chart-sage) !important; }
+.wellness-dashboard .recharts-reference-line line { stroke: var(--chart-olive) !important; }
+
+.wellness-app .bg-gray-100 { background-color: var(--botanical-paper-soft) !important; }
+.wellness-app .bg-emerald-100 { background-color: rgba(76, 153, 152, 0.17) !important; }
+.wellness-app .bg-cyan-500 { background-color: #4e929a !important; }
+.wellness-app .hover\:bg-cyan-600:hover { background-color: #3d7f87 !important; }
+.wellness-app .text-gray-300 { color: var(--botanical-muted) !important; }
+
+.dark .wellness-onboarding [class*="dark:bg-slate-"] {
+  background-color: var(--botanical-paper-soft) !important;
+}
+
+.wellness-auth-card label {
+  color: var(--botanical-ink) !important;
+}
+
+.wellness-auth [class*="from-emerald-500"][class*="to-teal-600"],
+.wellness-onboarding [class*="from-emerald-500"][class*="to-teal-600"] {
+  background-image: none !important;
+  background-color: #397f83 !important;
+}
+
+.dark .wellness-auth [class*="from-emerald-500"][class*="to-teal-600"],
+.dark .wellness-onboarding [class*="from-emerald-500"][class*="to-teal-600"] {
+  background-color: #4b9298 !important;
+}
+
+.wellness-auth .bg-emerald-50 { background-color: rgba(76, 153, 152, 0.12) !important; }
+.dark .wellness-auth [class*="dark:bg-emerald-"] { background-color: rgba(131, 183, 176, 0.16) !important; }
+
+.wellness-auth-card input {
+  min-height: 2.85rem;
+}
+
+.dark .wellness-auth-card input {
+  border-color: rgba(168, 210, 207, 0.28) !important;
+  background-color: var(--botanical-paper-soft) !important;
+  color: var(--botanical-ink) !important;
+}
+
+.wellness-auth-card button[type='submit'] {
+  min-height: 2.9rem;
+  border-radius: 0.85rem;
+  background: #397f83 !important;
+  box-shadow: 0 8px 18px -12px rgba(32, 109, 116, 0.6);
+}
+
+.wellness-auth-card button[type='submit']:hover {
+  background: #2d6e73 !important;
+}
+
+.wellness-auth-card .bg-rose-50 {
+  border: 1px solid rgba(189, 99, 98, 0.24);
+  color: #a34f50 !important;
+  line-height: 1.5;
+}
+
+.dark .wellness-auth-card .bg-rose-50 {
+  color: #f0aaa6 !important;
+}
+
+.wellness-welcome-title {
+  max-width: 12ch;
+  line-height: 1.08;
+}
+
+.wellness-leaf-mark {
+  color: #e3f7ee !important;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dark .wellness-leaf-mark { color: #c6f1e4 !important; }
+
+.wellness-welcome-hero {
+  min-height: 34rem;
+}
+
+.wellness-welcome-hero {
+  display: flex;
+  width: 100%;
+  max-width: none !important;
+  min-height: min(78svh, 52rem);
+  align-items: center;
+  padding: 4.5rem max(1.5rem, calc((100vw - 80rem) / 2)) !important;
+  background-image: linear-gradient(90deg, rgba(7, 35, 41, 0.86) 0%, rgba(10, 49, 56, 0.68) 43%, rgba(10, 48, 54, 0.16) 100%), url('/wellness-background.png') !important;
+  background-size: cover;
+  background-position: center 57%;
+  color: #f4fbfa;
+}
+
+.dark .wellness-welcome-hero {
+  background-image: linear-gradient(90deg, rgba(5, 25, 30, 0.9) 0%, rgba(7, 37, 43, 0.76) 48%, rgba(8, 37, 44, 0.3) 100%), url('/wellness-background.png') !important;
+}
+
+.wellness-welcome-hero > .grid {
+  width: min(100%, 80rem);
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.wellness-welcome-hero .wellness-hero-art { display: none; }
+.wellness-welcome-hero .animate-fade-up { max-width: 43rem; }
+.wellness-welcome-hero h1 { color: #f7fcfb !important; }
+.wellness-welcome-hero .text-gradient { background-image: linear-gradient(110deg, #b8eee4, #b7e7f0) !important; }
+.wellness-welcome-hero .text-gray-600,
+.wellness-welcome-hero .dark\:text-slate-400 { color: #d7e9e8 !important; }
+.wellness-welcome-hero .text-gray-400,
+.wellness-welcome-hero .dark\:text-slate-500 { color: #bbd3d3 !important; }
+.wellness-welcome-hero .bg-emerald-100 { background: rgba(180, 231, 226, 0.14) !important; color: #c3eee8 !important; }
+
+.wellness-auth {
+  background-image: linear-gradient(135deg, rgba(8, 43, 50, 0.72), rgba(18, 73, 82, 0.42)), url('/wellness-background.png') !important;
+  background-size: cover;
+  background-position: center;
+}
+
+.dark .wellness-auth {
+  background-image: linear-gradient(135deg, rgba(4, 25, 30, 0.82), rgba(7, 38, 44, 0.62)), url('/wellness-background.png') !important;
+}
+
+.wellness-hero-art > div:first-child {
+  aspect-ratio: 1 / 1;
+  max-width: 32rem;
+}
+
+.wellness-welcome .wellness-nature-art {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.wellness-welcome .wellness-nature-art::before,
+.wellness-welcome .wellness-nature-art::after {
+  position: absolute;
+  z-index: 0;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 50%;
+  content: '';
+  pointer-events: none;
+}
+
+.wellness-welcome .wellness-nature-art::before {
+  inset: 12% 18%;
+  transform: rotate(-22deg) scaleX(0.78);
+}
+
+.wellness-welcome .wellness-nature-art::after {
+  right: -14%;
+  bottom: -38%;
+  width: 72%;
+  aspect-ratio: 1;
+  background: rgba(216, 244, 242, 0.14);
+}
+
+.wellness-welcome-cta {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 26px 60px -38px rgba(20, 82, 91, 0.58) !important;
+}
+
+.wellness-welcome footer {
+  background: #17434a !important;
+}
+
+.dark .wellness-welcome footer {
+  background: #0c282d !important;
+}
+
+.wellness-dashboard-overview-grid { align-items: stretch; }
+.wellness-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 16.5rem;
+  box-shadow: 8px 0 34px -32px rgba(22, 81, 89, 0.45);
+}
+.wellness-sidebar-brand { height: 4.5rem; }
+.wellness-sidebar-nav { padding: 1.25rem 0.85rem; }
+.wellness-sidebar-nav button {
+  min-height: 2.75rem;
+  border: 1px solid transparent;
+  border-radius: 0.8rem;
+  color: var(--botanical-muted);
+}
+.wellness-sidebar-nav button:hover { color: var(--botanical-ink); }
+.wellness-sidebar-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0.85rem 0.9rem;
+  padding: 0.8rem;
+  border: 1px solid var(--botanical-line);
+  border-radius: 0.9rem;
+  background: var(--botanical-paper-soft);
+}
+.wellness-sidebar-avatar {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 0.8rem;
+  background: linear-gradient(145deg, #4a9295, #5ca8ac);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.wellness-sidebar-profile-name {
+  overflow: hidden;
+  color: var(--botanical-ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wellness-sidebar-profile-detail { color: var(--botanical-muted); font-size: 0.68rem; }
+.wellness-sidebar-footer { padding-bottom: 1rem; }
+.wellness-sidebar .wellness-sidebar-profile { margin-top: auto; }
+.wellness-dashboard-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(18rem, 0.9fr);
+  grid-template-areas: "goals recommendations" "streak streak";
+  align-items: start;
+  gap: 1.4rem;
+}
+.wellness-dashboard-goals { grid-area: goals; }
+.wellness-dashboard-recommendations { grid-area: recommendations; }
+.wellness-dashboard-streak { grid-area: streak; }
+.wellness-dashboard-recommendations > .grid { grid-template-columns: minmax(0, 1fr); }
+.wellness-dashboard-streak > .wellness-card { height: 100%; }
+.wellness-dashboard-stat-grid { grid-auto-rows: minmax(8.25rem, auto); }
+.wellness-dashboard-stat-grid > .wellness-card { padding: 1.1rem; }
+.wellness-dashboard-section { padding-top: 0.35rem; }
+.wellness-dashboard-section > h2 { margin-bottom: 0.85rem; }
+
+.wellness-sidebar nav button.bg-gradient-to-r {
+  background-image: linear-gradient(95deg, rgba(76, 153, 152, 0.16), rgba(103, 157, 178, 0.1)) !important;
+}
+
+.dark .wellness-sidebar nav button.bg-gradient-to-r {
+  background-image: linear-gradient(95deg, rgba(121, 196, 191, 0.17), rgba(103, 157, 178, 0.12)) !important;
+}
+
+.wellness-meditation-player {
+  background: radial-gradient(ellipse at 50% 25%, rgba(63, 137, 143, 0.38), transparent 50%), linear-gradient(145deg, #153b42, #102b32 62%, #163e44) !important;
+}
+
+.wellness-meditation-banner {
+  background: linear-gradient(135deg, #3b8589, #4b9298 58%, #568fa0) !important;
+}
+
+.wellness-meditation-track-icon {
+  border: 1px solid var(--reminder-blue-border);
+  background: var(--reminder-blue);
+}
+
+.wellness-yoga-screen,
+.wellness-yoga-complete {
+  background-color: var(--botanical-cream) !important;
+  background-image: radial-gradient(ellipse at 10% 0%, rgba(125, 190, 188, 0.2), transparent 42%), radial-gradient(ellipse at 95% 100%, rgba(115, 171, 194, 0.15), transparent 42%) !important;
+}
+
+.dark .wellness-yoga-screen,
+.dark .wellness-yoga-complete {
+  background-image: radial-gradient(ellipse at 10% 0%, rgba(62, 144, 145, 0.2), transparent 42%), radial-gradient(ellipse at 95% 100%, rgba(53, 116, 140, 0.15), transparent 42%) !important;
+}
+
+@media (max-width: 1023px) {
+  .wellness-dashboard-content-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "goals" "recommendations" "streak";
+  }
+  .wellness-dashboard-recommendations > .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.wellness-app .recharts-bar-rectangle { transition: opacity 160ms ease; }
+.wellness-app .recharts-bar-rectangle:hover { opacity: 0.82; }
+
+@media (max-width: 640px) {
+  .wellness-dashboard { row-gap: 1.15rem; }
+  .wellness-dashboard-heading { align-items: center; }
+  .wellness-dashboard-overview-grid { grid-template-columns: minmax(0, 1fr); }
+  .wellness-dashboard-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(7.5rem, auto); }
+  .wellness-score-card { min-height: 18rem; }
+  .wellness-auth-card { padding: 1.25rem !important; }
+  .wellness-welcome-hero {
+    min-height: max(38rem, 82svh);
+    padding: 3.5rem 1.25rem !important;
+    background-image: linear-gradient(180deg, rgba(7, 35, 41, 0.82), rgba(8, 39, 45, 0.7) 62%, rgba(7, 35, 41, 0.46)), url('/wellness-background.png') !important;
+    background-position: 58% center;
+  }
+  .dark .wellness-welcome-hero {
+    background-image: linear-gradient(180deg, rgba(5, 25, 30, 0.88), rgba(7, 37, 43, 0.8) 62%, rgba(8, 37, 44, 0.58)), url('/wellness-background.png') !important;
+  }
+  .wellness-welcome-title { max-width: 11ch; font-size: 2.75rem; }
+  .wellness-preview-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wellness-welcome-cta { padding: 2rem 1.25rem !important; }
+  .wellness-app main > div { padding-inline: 1rem; padding-top: 1.15rem; }
+  .wellness-sidebar-profile.mobile-profile { margin: 0.75rem 1rem; }
+  .wellness-card,
+  .wellness-onboarding-card { border-radius: 1.1rem !important; }
+  .wellness-toast { max-width: calc(100vw - 2rem) !important; }
+  .wellness-reminder-anchor { z-index: 40; }
+  .wellness-reminder-popover {
+    position: fixed;
+    top: 4.75rem;
+    right: 0.75rem;
+    width: min(22rem, calc(100vw - 1.5rem));
+    max-height: calc(100dvh - 9rem);
+  }
+}
+
+@media (max-width: 380px) {
+  .wellness-dashboard-heading { gap: 0.5rem; }
+  .wellness-reminder-bell { width: 2.5rem; height: 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .print\:hidden { display: none !important; }
+  body { background: white !important; }
+}
